@@ -20,12 +20,12 @@
             </a>
             
             <nav class="nav-menu" id="navMenu">
-                <a href="#about" class="nav-link active"><span data-i18n="about">О проекте</span></a>
+                <a href="#about" class="nav-link active"><span data-i18n="about">Главная</span></a>
                 <a href="#events" class="nav-link"><span data-i18n="events">Ивенты</span></a>
                 <a href="#organizations" class="nav-link"><span data-i18n="organizations">Организации</span></a>
                 <a href="#hub" class="nav-link"><span data-i18n="knowledge">База знаний</span></a>
+                <a href="opportunities.html" class="nav-link nav-opportunities-link"><span class="nav-opportunities-short" data-i18n="opportunitiesShort">Возм.</span><span class="nav-opportunities-full" data-i18n="opportunities">Возможности</span></a>
                 <a href="#suggest" class="nav-link"><span data-i18n="organizers">Организаторам</span></a>
-                <a href="#faq" class="nav-link"><span data-i18n="faq">FAQ</span></a>
             </nav>
 
             <div class="header-controls">
@@ -42,7 +42,7 @@
                         <option value="batken">Баткенская область</option>
                     </select>
                 </div>
-                <button id="languageToggle" class="language-btn" aria-label="Переключить язык">KG</button>
+                <button id="languageToggle" class="language-btn" aria-label="Переключить язык" title="Русский / Кыргызча / English">RU</button>
                 <button id="themeToggle" class="theme-btn" aria-label="Переключить тему">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -64,7 +64,7 @@
                 <p><span data-i18n="heroText">Находи лучшие волонтерские проекты, участвуй в Моделях ООН, побеждай в дебатах, проходи топовые курсы и прокачивай себя каждый день. Все возможности твоего города в одном месте!</span></p>
                 <div class="hero-btns">
                     <a href="#events" class="btn btn-primary"><span data-i18n="findEvent">Найти ивент</span></a>
-                    <a href="#hub" class="btn btn-secondary">База знаний</a>
+                    <a href="#hub" class="btn btn-secondary" data-i18n="knowledge">База знаний</a>
                 </div>
             </div>
             <div class="hero-image-container">
@@ -78,7 +78,7 @@
                         <i class="fa-solid fa-bolt mockup-icon"></i>
                         <h3>Бот @arakettik_bot</h3>
                         <p>Уже запущен в Telegram! Получай мгновенные уведомления о новых событиях прямо в свой смартфон.</p>
-                        <a href="https://t.me/" target="_blank" class="bot-link"><i class="fa-brands fa-telegram"></i> Запустить бота</a>
+                        <a href="https://t.me/arakettik_bot" target="_blank" class="bot-link"><i class="fa-brands fa-telegram"></i> Запустить бота</a>
                     </div>
                 </div>
             </div>
@@ -97,15 +97,33 @@
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
                     <input type="text" id="searchInput" data-i18n-placeholder="eventSearch" placeholder="Поиск мероприятий по названию...">
                 </div>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all"><span data-i18n="all">Все</span></button>
-                    <button class="filter-btn" data-filter="volunteering"><span data-i18n="volunteering">Волонтерство</span></button>
-                    <button class="filter-btn" data-filter="webinars"><span data-i18n="webinars">Вебинары & Тренинги</span></button>
-                    <button class="filter-btn" data-filter="eco"><span data-i18n="ecology">Экология</span></button>
-                    <button class="filter-btn" data-filter="mun">Модель ООН</button>
-                    <button class="filter-btn" data-filter="education">Образование</button>
-                    <button class="filter-btn" data-filter="other">Другое</button>
-                </div>
+               <div class="filter-buttons">
+
+    <button class="filter-btn active" data-filter="all">
+        <span data-i18n="all">Все</span>
+    </button>
+
+    <button class="filter-btn" data-filter="volunteering">
+        <span data-i18n="volunteering">Волонтерство</span>
+    </button>
+
+    <button class="filter-btn" data-filter="webinars">
+        <span data-i18n="webinars">Тренинги</span>
+    </button>
+
+    <button class="filter-btn" data-filter="education">
+                        <span data-i18n="education">Образование</span>
+    </button>
+
+    <button class="filter-btn" data-filter="mun">
+                        <span data-i18n="munDebates">MUN & Дебаты</span>
+    </button>
+
+    <button class="filter-btn" data-filter="eco">
+        <span data-i18n="ecology">Экология</span>
+    </button>
+
+</div>
             </div>
 
             <div class="events-grid" id="eventsGrid">
@@ -299,42 +317,17 @@
         </div>
     </section>
 
-    <section class="section faq-section" id="faq">
+    <section class="section partners-section" aria-labelledby="partnersTitle">
         <div class="container">
-            <div class="section-header">
-                <h2>Остались <span class="gradient-text">вопросы?</span></h2>
-                <p>Быстрые ответы на то, что чаще всего интересует пользователей</p>
-            </div>
-
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Как попасть на мероприятие?</span>
-                        <i class="fa-solid fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Всё просто! Выбирайте понравившийся ивент в нашей ленте, кликайте по кнопке «Подробнее» или переходите по указанной ссылке регистрации. Также вы можете настроить фильтры в нашем Telegram-боте, чтобы получать уведомления только по интересным вам категориям.</p>
-                    </div>
+            <div class="partners-card glass-card">
+                <div>
+                    <span class="section-eyebrow"><i class="fa-solid fa-handshake"></i> Наш партнёр</span>
+                    <h2 id="partnersTitle">Партнёры <span class="gradient-text">Arakettik</span></h2>
+                    <p>Организации, которые вместе с нами создают больше возможностей для молодёжи Кыргызстана.</p>
                 </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Это бесплатно?</span>
-                        <i class="fa-solid fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Да, использование платформы Arakettik, поиск возможностей и публикации для организаторов полностью бесплатны. Наша цель — сделать полезные активности доступными для каждого молодого человека.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Как статьи попадают в Базу Знаний?</span>
-                        <i class="fa-solid fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Материалы готовятся нашей командой экспертов, экспертами из Дебатных лиг и координаторами Моделей ООН. Если у вас есть крутой образовательный материал или статья, которой вы хотите поделиться, свяжитесь с нами через форму для организаторов.</p>
-                    </div>
+                <div class="partner-logo-card">
+                    <i class="fa-solid fa-people-group"></i>
+                    <div><strong>Youth of Osh</strong><span>Молодёжная организация · Ош</span></div>
                 </div>
             </div>
         </div>
@@ -353,6 +346,23 @@
                 <a href="https://t.me/" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
                 <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+        <div class="container footer-faq">
+            <h2>Частые вопросы</h2>
+            <div class="faq-accordion footer-faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question" type="button"><span>Как попасть на мероприятие?</span><i class="fa-solid fa-chevron-down faq-icon"></i></button>
+                    <div class="faq-answer"><p>Выберите ивент в ленте, откройте «Подробнее» и перейдите по ссылке регистрации. В Telegram-боте можно настроить уведомления по интересным категориям.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" type="button"><span>Это бесплатно?</span><i class="fa-solid fa-chevron-down faq-icon"></i></button>
+                    <div class="faq-answer"><p>Да, использование Arakettik, поиск возможностей и публикации для организаторов полностью бесплатны.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" type="button"><span>Как статьи попадают в Базу знаний?</span><i class="fa-solid fa-chevron-down faq-icon"></i></button>
+                    <div class="faq-answer"><p>Материалы готовят эксперты, дебатные лиги и координаторы Моделей ООН. Полезный материал можно предложить через форму для организаторов.</p></div>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
