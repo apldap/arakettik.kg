@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ARAKETTIK · Редактор мероприятий</title><link rel="stylesheet" href="style.css?v=20261015c"><link rel="stylesheet" href="opportunities.css?v=20261015c"><link rel="stylesheet" href="editor.css?v=20261015c"></head>
+<body><main class="container editor-page">
+ <a href="index.html#suggest" class="read-link">← Вернуться на сайт</a>
+ <h1>Добавить возможность</h1>
+ <p class="editor-intro">Вставьте объявление, проверьте поля и посмотрите карточку. Всё сохраняется на этом устройстве. Для публикации скачайте <strong>manual-content.js</strong> и замените им одноимённый файл существующего сайта на GitHub.</p>
+ <details class="glass-card editor-paste" open><summary>Начать с текста объявления</summary>
+  <label for="postText">Объявление</label><textarea id="postText" rows="8" placeholder="Название: Набор волонтёров&#10;Организатор: Молодёжный клуб&#10;Город: Ош&#10;Дедлайн: 2026-10-25 18:00&#10;Кому: Молодёжь 16–25 лет&#10;Стоимость: Бесплатно&#10;Ссылка: https://example.org/apply&#10;Описание: Участники помогают на городском мероприятии."></textarea>
+  <p>Можно вставить обычный пост: первая строка станет названием, остальное — описанием. Подписанные поля, как в примере, заполняются автоматически. Это простой разбор текста, без ИИ.</p>
+  <button id="fillPost" type="button" class="btn btn-secondary">Заполнить поля из текста</button>
+ </details>
+ <form id="manualForm" class="glass-card editor-form">
+  <input id="recordId" type="hidden">
+  <div class="editor-row"><label>Раздел<select id="section"><option value="kg">Кыргызстан</option><option value="world">Международный</option></select></label><label>Категория<select id="category"></select></label></div>
+  <label>Название<input id="title" required maxlength="180"></label>
+  <label>Организатор<input id="organization" required maxlength="180"></label>
+  <div class="editor-row"><label id="cityLabel">Регион<select id="city"><option value="bishkek">Бишкек</option><option value="osh">Ош и Ошская область</option><option value="chuy">Чуйская область</option><option value="jalal-abad">Джалал-Абадская область</option><option value="issyk-kul">Иссык-Кульская область</option><option value="naryn">Нарынская область</option><option value="talas">Таласская область</option><option value="batken">Баткенская область</option><option value="all">Онлайн / весь Кыргызстан</option></select></label><label id="countryLabel" hidden>Страна / формат<input id="country" placeholder="США / онлайн"></label><label>Кому подходит<input id="audience" required placeholder="Например: школьники 14–18 лет"></label></div>
+  <div class="editor-row"><label>Дедлайн регистрации<input id="deadline" type="datetime-local" required></label><label>Часовой пояс дедлайна<select id="timezone"><option value="+06:00">Бишкек · UTC+6</option><option value="Z">UTC</option><option value="+01:00">UTC+1</option><option value="+02:00">UTC+2</option><option value="+03:00">UTC+3</option><option value="+08:00">UTC+8</option><option value="+09:00">UTC+9</option><option value="-04:00">UTC−4</option><option value="-05:00">UTC−5</option><option value="-07:00">UTC−7</option><option value="-08:00">UTC−8</option></select></label></div>
+  <p class="editor-hint">Используйте смещение на дату закрытия: летнее и зимнее время могут отличаться. После дедлайна карточка исчезнет сама. Возможности без подтверждённого срока добавляй после уточнения у организатора.</p>
+  <label>Краткое описание<textarea id="description" required rows="3" maxlength="500"></textarea></label>
+  <label>Ссылка регистрации или организатора<input id="url" type="url" required placeholder="https://..."></label>
+  <label>Изображение<input id="image" type="file" accept="image/jpeg,image/png,image/webp"></label><p class="editor-hint">Картинка сохраняется без изменения. Для быстрого сайта выбирайте исходный файл разумного размера; максимум 3 МБ.</p>
+  <details><summary>Подробности для «Подробнее»</summary>
+   <label>О возможности<textarea id="overview" rows="6" placeholder="Несколько коротких абзацев: что это, зачем участвовать, как устроено."></textarea></label>
+   <div class="editor-row"><label>Дата проведения<input id="eventDate" placeholder="Например: 28 октября 2026"></label><label>Место / формат<input id="format" placeholder="Адрес, онлайн или смешанный формат"></label></div>
+   <label>Стоимость / финансирование<input id="funding" placeholder="Бесплатно / 300 сом / что покрывается"></label>
+   <label>Что делают участники<textarea id="activities" rows="3" placeholder="Каждый пункт с новой строки"></textarea></label>
+   <label>Что получат участники<textarea id="benefits" rows="3"></textarea></label>
+   <label>Требования<textarea id="criteria" rows="3"></textarea></label>
+   <label>Документы<textarea id="documents" rows="3"></textarea></label>
+   <label>Как подать заявку<textarea id="steps" rows="3"></textarea></label>
+   <label>Контакты / важное уточнение<textarea id="note" rows="3"></textarea></label>
+   <label id="eligibilityLabel" hidden>Участие граждан Кыргызстана<input id="eligibility" placeholder="Укажите подтверждённые ограничения гражданства и резидентства"></label>
+   <label>Первоисточник<input id="source" type="url" placeholder="https://..."></label>
+  </details>
+  <div class="editor-actions"><button class="btn btn-primary" type="submit">Сохранить и показать карточку</button><button class="btn btn-secondary" id="clearForm" type="button">Новая карточка</button></div>
+ </form>
+ <p id="editorStatus" role="status" aria-live="polite"></p>
+ <section id="editorPreview" hidden><h2>Предпросмотр</h2><div id="previewCard"></div><div id="previewDetails" class="glass-card"></div></section>
+ <section class="editor-library"><h2>Ваши карточки</h2><div class="editor-actions"><button id="exportPackage" class="btn btn-primary" type="button">Скачать пакет с изображениями</button><button id="exportCards" class="btn btn-primary" type="button">Скачать manual-content.js</button><label class="btn btn-secondary">Загрузить сохранённую копию<input id="importCards" type="file" accept=".json" hidden></label><button id="backupCards" class="btn btn-secondary" type="button">Скачать резервную копию</button></div><p>Экспорт содержит все карточки редактора, включая ранее опубликованные. Не удаляйте старые записи при подготовке следующего обновления. Резервная копия — JSON, её можно загрузить на другом устройстве.</p><div id="recordList"></div></section>
+</main><script src="site-config.js?v=20261015c"></script><script src="catalog-api.js?v=20261015c"></script><script src="manual-content.js?v=20261015c"></script><script src="content-package.js?v=20261015c"></script><script src="event-card-view.js?v=20261015c"></script><script src="manual-editor.js?v=20261015c"></script></body></html>
